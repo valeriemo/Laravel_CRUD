@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('telephone', 25);
             $table->string('email', 60)->unique();
             $table->string('date_naissance', 20);
-            $table->integer('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes')->constrained();
+            $table->unsignedBigInteger('ville_id');
+            $table->foreign('ville_id')->references('id')->on('villes');
             $table->timestamps();
         });
     }

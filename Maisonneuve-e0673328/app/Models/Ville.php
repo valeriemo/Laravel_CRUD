@@ -15,7 +15,11 @@ class Ville extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'nom',
     ];
+
+    public function etudiants()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
 }

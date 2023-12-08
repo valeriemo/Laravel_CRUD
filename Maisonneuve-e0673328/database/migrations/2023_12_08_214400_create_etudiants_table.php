@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 60)->unique();
             $table->string('date_naissance', 20);
             $table->integer('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
+            $table->foreign('ville_id')->references('id')->on('villes')->constrained();
             $table->timestamps();
         });
     }

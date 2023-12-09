@@ -26,7 +26,8 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        //
+        return view('reseau.create');
+
     }
 
     /**
@@ -48,7 +49,8 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        //
+        $etudiant = Etudiant::find($etudiant->id);
+        return view('reseau.show', compact('etudiant'));
     }
 
     /**

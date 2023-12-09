@@ -19,3 +19,18 @@ Route::get('/', function () {
 });
 
 Route::get('/etudiant-reseau', [EtudiantController::class, 'index'])->name('reseau.index'); // Route pour afficher tous les étudiants
+
+// Méthode pour afficher la page d'un blog en particulier
+Route::get('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'show'])->name('reseau.show');
+
+// Méthode pour afficher la page de création
+Route::get('/etudiant-create', [EtudiantController::class, 'create'])->name('reseau.create');
+// Méthode pour store un nouveau blog
+Route::post('/etudiant-create', [EtudiantController::class, 'store'])->name('reseau.store');
+
+// Méthode pour afficher la page de modification
+Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit'])->name('reseau.edit');
+// // Méthode pour store le update
+// Route::put( '/reseau/edit/{reseauPost}', [EtudiantController::class, 'update'])->name('reseau.edit');
+// // Méthode pour supprimer un article
+// Route::delete('/reseau/{reseauPost}', [EtudiantController::class, 'destroy'])->name('reseau.delete');

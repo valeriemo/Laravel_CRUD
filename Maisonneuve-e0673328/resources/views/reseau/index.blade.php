@@ -25,7 +25,9 @@
                                 <td>{{ $etudiant->date_naissance }}</td>
                                 <td>{{ $etudiant->email }}</td>
                                 <td>
-                                    
+                                    <a href="{{ route('reseau.show', $etudiant->id) }}" class="btn btn-primary">Voir</a>
+                                    <a href="{{ route('reseau.edit', $etudiant->id) }}" class="btn btn-primary">Editer</a>
+                                    <a href="" class="btn btn-primary mt-2">Supprimer</a>
                                 </td>
                             </tr>
                         @endforeach

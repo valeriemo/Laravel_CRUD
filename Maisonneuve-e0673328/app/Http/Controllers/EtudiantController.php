@@ -53,7 +53,7 @@ class EtudiantController extends Controller
         $etudiant->fill($request->all());
         $etudiant->save();
 
-        return redirect(route('etudiant.index'))->withSuccess('Utilisateur enregistré !');
+        return redirect(route('etudiant.index'))->withSuccess('Nouvel étudiant créer !');
     }
 
     /**
@@ -65,7 +65,7 @@ class EtudiantController extends Controller
     public function show(Etudiant $etudiant)
     {
         $etudiant = Etudiant::find($etudiant->id);
-        return view('etudiant.show', compact('etudiant'));
+        return view('reseau.show', compact('etudiant'));
     }
 
     /**
@@ -76,8 +76,10 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
+        //je récupère toutes les villes
+        $villes = DB::table('villes')->get();
         $etudiant = Etudiant::find($etudiant->id);
-        return view('etudiant.edit', compact('etudiant'));
+        return view('reseau.edit', compact('etudiant', 'villes'));
     }
 
     /**

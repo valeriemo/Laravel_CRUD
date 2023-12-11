@@ -5,15 +5,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Liste des étudiants</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Adresse</th>
-                            <th>Ville</th>
-                            <th>Numéro de téléphone</th>
-                            <th>Adresse mail</th>
+                <h1 class="card-header mb-3 display-4 text-center titre">Liste des étudiants<span class="emoji">👫</span> </h1>
+
+                <table class="table table-hover custom_table ">
+                    <thead class="thead-dark ">
+                        <tr class="bg-custom">
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Ville</th>
+                            <th scope="col">Numéro de téléphone</th>
+                            <th scope="col">Adresse mail</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

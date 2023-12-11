@@ -1,20 +1,54 @@
+/* text-primary : Texte de couleur primaire.
+text-secondary : Texte de couleur secondaire.
+text-success : Texte de couleur de succès.
+text-danger : Texte de couleur dangereuse.
+text-warning : Texte de couleur d'avertissement.
+text-info : Texte de couleur d'information.
+text-light : Texte de couleur claire (souvent utilisé sur un fond sombre).
+text-dark : Texte de couleur foncée (souvent utilisé sur un fond clair).
+text-muted : Texte de couleur atténuée. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Color+Emoji&family=Roboto:ital,wght@0,400;1,300&display=swap');
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --background-color: #a4cdd7;
-    --text-color: #333;
-  }
-  
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-  
-  .navbar {
-    background-color: var(--primary-color);
-  }
-  
-  .nav-link {
-    color: var(--secondary-color);
-  }
+  --primary-color: rgb(219, 124, 52);
+  --secondary-color: #2ecc71;
+  --background-color: #a4cdd7;
+  --text-color: #333;
+  --bs-primary: #09ff00;
+  --bs-btn-hover-color: #ff0000;
+  --bebas: 'Bebas Neue', sans-serif;
+  --emoji: 'Noto Color Emoji', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+}
+.custom-navbar {
+  font-family: var(--bebas);
+}
+
+.titre{
+  color: #0e8a07;
+  margin-bottom: 30px;
+  font-family: var(--bebas);
+}
+.emoji{
+  font-family: var(--emoji);
+  padding: 10px;
+}
+.text-custom {
+  color: #ffcc00;
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.bg-custom {
+background-color: #ffcc00; 
+}
+
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.nav-link {
+  color: var(--secondary-color);
+}
   

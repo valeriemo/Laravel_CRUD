@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{ $etudiant->nom }}</td>
                                 <td>{{ $etudiant->adresse }}</td>
-                                <td>{{ $etudiant->ville_id }}</td>
+                                <td>{{ $etudiant->ville->nom }}</td>
                                 <td>{{ $etudiant->date_naissance }}</td>
                                 <td>{{ $etudiant->email }}</td>
                                 <td>

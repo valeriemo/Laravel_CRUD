@@ -4,7 +4,8 @@
 <div class="container">
         <div class="row">
             <div class="container d-flex justify-content-center">
-                <form action="{{ route('etudiant.store')}}" method="post">
+                <form method="post">
+                @method('put')
                 @csrf
                 <h1 class="card-header mb-3 display-4 text-center titre">
                     Éditer l'étudiant

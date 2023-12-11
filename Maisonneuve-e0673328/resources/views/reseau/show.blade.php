@@ -13,14 +13,14 @@
                     <h5 class="card-title">{{ $etudiant->nom }}</h5>
                     <p class="card-text">
                         <strong>Adresse:</strong> {{ $etudiant->adresse }}<br>
-                        <strong>Ville:</strong> {{ $etudiant->ville_id }}<br>
+                        <strong>Ville:</strong> {{ $etudiant->ville->nom }}<br>
                         <strong>Numéro de téléphone:</strong> {{ $etudiant->date_naissance }}<br>
                         <strong>Adresse mail:</strong> {{ $etudiant->email }}
                     </p>
                 </div>
             </div>
             <div class="mt-4">
-                <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Editer</a>
+                <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Éditer</a>
                 <a href="{{route('etudiant.index')}}" class="btn btn-primary">Retour à la liste</a>
             </div>
 

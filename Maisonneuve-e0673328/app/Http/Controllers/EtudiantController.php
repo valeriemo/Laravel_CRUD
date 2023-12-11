@@ -91,7 +91,6 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-            
             $etudiant->update([
                 'nom' => $request->nom,
                 'adresse' => $request->adresse,
@@ -100,7 +99,7 @@ class EtudiantController extends Controller
                 'date_naissance' => $request->date_naissance,
                 'ville_id' => $request->ville_id,
             ]);
-            return redirect()->route('etudiant.index');
+            return redirect()->route('etudiant.index')->withSuccess('Étudiant modifié !');
     }
 
     /**

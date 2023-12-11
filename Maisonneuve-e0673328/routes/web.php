@@ -33,6 +33,7 @@ Route::post('/etudiant-create', [EtudiantController::class, 'store'])->name('etu
 Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
 
 // // Méthode pour store le update
-// Route::put( '/reseau/edit/{reseauPost}', [EtudiantController::class, 'update'])->name('etudiant.edit');
+Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.edit');
+
 // // Méthode pour supprimer un article
 // Route::delete('/reseau/{reseauPost}', [EtudiantController::class, 'destroy'])->name('reseau.delete');

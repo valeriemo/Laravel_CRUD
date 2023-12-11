@@ -40,15 +40,20 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-    Etudiant::create([
-            'nom' => $request->nom,
-            'adresse' => $request->adresse,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-            'date_naissance' => $request->date_naissance,
-            'ville_id' => $request->ville_id,
+        $request->validate([ //validation des champs
+            'nom' => 'required|min:2|max:45',
+            'adresse' => 'required|min:3|max:150',
+            'telephone' => 'required|min:7|max:25',
+            'email' => 'required|email|unique:etudiants|max:60',
+            'date_naissance' => 'required|date|before:today|max:20|date_format:Y-m-d',
+            'ville_id' => 'required|integer',
         ]);
-        return redirect()->route('etudiant.index');
+
+        $etudiant = new Etudiant;
+        $etudiant->fill($request->all());
+        $etudiant->save();
+
+        return redirect(route('etudiant.index'))->withSuccess('Utilisateur enregistré !');
     }
 
     /**

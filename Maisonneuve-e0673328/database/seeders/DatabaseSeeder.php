@@ -14,11 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $villes = \App\Models\Ville::factory(15)->create();
+        // Je crée 100 étudiants et je les rattache à une ville deja existante
+        $etudiants = \App\Models\Etudiant::factory(100)->recycle($villes)->create();
     }
 }

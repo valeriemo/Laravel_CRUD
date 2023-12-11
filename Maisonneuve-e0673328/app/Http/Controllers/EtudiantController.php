@@ -26,7 +26,9 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        return view('reseau.create');
+        //je récupère toutes les villes
+        $villes = DB::table('villes')->get();
+        return view('reseau.create', compact('villes'));
 
     }
 
@@ -38,7 +40,15 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    Etudiant::create([
+            'nom' => $request->nom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'date_naissance' => $request->date_naissance,
+            'ville_id' => $request->ville_id,
+        ]);
+        return redirect()->route('etudiant.index');
     }
 
     /**
@@ -50,7 +60,7 @@ class EtudiantController extends Controller
     public function show(Etudiant $etudiant)
     {
         $etudiant = Etudiant::find($etudiant->id);
-        return view('reseau.show', compact('etudiant'));
+        return view('etudiant.show', compact('etudiant'));
     }
 
     /**
@@ -61,7 +71,8 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        //
+        $etudiant = Etudiant::find($etudiant->id);
+        return view('etudiant.edit', compact('etudiant'));
     }
 
     /**
@@ -73,7 +84,16 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+            
+            $etudiant->update([
+                'nom' => $request->nom,
+                'adresse' => $request->adresse,
+                'telephone' => $request->telephone,
+                'email' => $request->email,
+                'date_naissance' => $request->date_naissance,
+                'ville_id' => $request->ville_id,
+            ]);
+            return redirect()->route('etudiant.index');
     }
 
     /**
@@ -84,6 +104,7 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+            $etudiant->delete();
+            return redirect()->route('etudiant.index')->withSuccess('Étudiant supprimé !');
     }
 }

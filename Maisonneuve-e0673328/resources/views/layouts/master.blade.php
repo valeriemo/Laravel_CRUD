@@ -14,41 +14,35 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
-    <div class="container-fluid">
-        <a href="{{route('etudiant.index')}}" class="navbar-brand" href="#">Réseau Étudiant</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        <img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('etudiant.index')}}">Liste des étudiants</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('etudiant.create')}}">Créer un étudiant</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">À propos</a>
-                </li>
             </ul>
         </div>
-    </div>
 </nav>
+<main>
 
     <div class="container mt-5">
-
-
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success')}}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
-        
         @yield('content')
-
     </div>
 
-</body>
+</main>
 
+    <footer>
+        <p>&copy; 2023 Valérie Moreau. TP 1 | Laravel CRUD.</p>
+    </footer>
+
+</body>
 </html>

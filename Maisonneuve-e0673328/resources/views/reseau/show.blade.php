@@ -1,12 +1,12 @@
 @extends('layouts/master')
 @section('content')
 
-<div class="container">
+<div class="container typo">
     <div class="row">
         <div class="col-12">
-            <h1 class="card-header mb-3 display-4 text-center titre">Etudiant</h1>
+            <h1 class="card-header mb-3 display-4 text-center titre">Étudiant</h1>
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-custom text-white">
                     Informations sur l'étudiant
                 </div>
                 <div class="card-body">
@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="mt-4">
-                <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Éditer</a>
-                <a href="{{route('etudiant.index')}}" class="btn btn-primary">Retour à la liste</a>
+                <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-custom">Éditer</a>
+                <a href="{{route('etudiant.index')}}" class="btn btn-custom">Retour à la liste</a>
             </div>
 
         </div>

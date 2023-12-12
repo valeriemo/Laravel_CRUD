@@ -9,39 +9,115 @@ text-dark : Texte de couleur foncée (souvent utilisé sur un fond clair).
 text-muted : Texte de couleur atténuée. */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Color+Emoji&family=Roboto:ital,wght@0,400;1,300&display=swap');
 :root {
-  --primary-color: rgb(219, 124, 52);
-  --secondary-color: #2ecc71;
-  --background-color: #a4cdd7;
-  --text-color: #333;
-  --bs-primary: #09ff00;
-  --bs-btn-hover-color: #ff0000;
+  --primary-color: #6E44FF;
+  --secondary-color: #2E294E;
+  --background-color: #EADEDA;
+  --success-color: #38E4AE;
+  --danger-color: #d45c72;  
   --bebas: 'Bebas Neue', sans-serif;
   --emoji: 'Noto Color Emoji', sans-serif;
   --roboto: 'Roboto', sans-serif;
 }
+.table {
+  margin-top: 4em;
+  border-color: var(--primary-color);
+  --bs-table-color-type: var(--secondary-color); 
+  --bs-table-striped-color: var(--primary-color);
+  --bs-table-striped-bg: var(--primary-color);
+  --bs-table-bg: var(--background-color);
+}
+.logo{
+  max-width: 150px;
+  padding: 15px;
+}
+.typo{
+  font-family: var(--roboto);
+  font-size: 1rem;
+}
+.btn-custom {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  font-family: var(--bebas);
+  padding-top: 8px;
+  margin: 3px 0px;
+  font-size: 1.2em;
+  &:hover {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+.head-custom{
+  line-height: 1em;
+}
+.btn-custom-danger{
+  background-color: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+  font-family: var(--bebas);
+  padding-top: 8px;
+  font-size: 1.2em;
+  &:hover {
+    background-color: white;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+  }
+}
 .custom-navbar {
   font-family: var(--bebas);
-}
+  font-size: 1.5rem;
+  padding-left: 20px;
+  & a{
+    color: var(--secondary-color);
+    &:hover{
+      color: var(--primary-color);
+    }
+  }
+  & li:last-of-type > a{
+    margin-right: 20px;
+  }
 
+}
+.mb-3 > label {
+  font-family: var(--bebas);
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+.mb-3 .text-danger-danger{
+  --bs-danger-rgb: var(--danger-color);
+  color: var(--bs-danger-rgb);
+  font-weight: 800;
+}
 .titre{
-  color: #0e8a07;
+  color: var(--secondary-color);
   margin-bottom: 30px;
   font-family: var(--bebas);
+  border-bottom: 2px solid var(--secondary-color);
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 .emoji{
   font-family: var(--emoji);
   padding: 10px;
 }
-.text-custom {
-  color: #ffcc00;
+.alert-success{
+  color: var(--secondary-color);
+  --bs-alert-bg: var(--success-color);
 }
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  height: 100vh;
 }
-
+main {
+  min-height: 100vh;
+} 
 .bg-custom {
-background-color: #ffcc00; 
+  background-color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-family: var(--roboto);
 }
 
 .navbar {
@@ -52,3 +128,15 @@ background-color: #ffcc00;
   color: var(--secondary-color);
 }
   
+footer{
+  font-family: var(--bebas);
+  padding-top: 14px;
+  margin-top: 40px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  max-height: 80px;
+  width: 100vw;
+  background-color: var(--secondary-color);
+}

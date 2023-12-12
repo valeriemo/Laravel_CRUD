@@ -14,19 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Page d'accueil de Laravel
 Route::get('/', function () {
     return view('welcome');
 });
-
+// Route pour afficher tous les étudiants
 Route::get('/etudiant-reseau', [EtudiantController::class, 'index'])->name('etudiant.index'); // Route pour afficher tous les étudiants
 
-// Méthode pour afficher la page d'un blog en particulier
+// Méthode pour afficher la page de détail d'un étudiant
 Route::get('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
 
-// Méthode pour afficher la page de création
+// Méthode pour afficher la page de création d'un nouvel étudiant
 Route::get('/etudiant-create', [EtudiantController::class, 'create'])->name('etudiant.create');
 
-// Méthode pour store un nouveau blog
+// Méthode pour store le nouvel étudiant
 Route::post('/etudiant-create', [EtudiantController::class, 'store'])->name('etudiant.store');
 
 // Méthode pour afficher la page de modification
@@ -35,5 +36,5 @@ Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit
 // // Méthode pour store le update
 Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.edit');
 
-// // Méthode pour supprimer un article
-// Route::delete('/reseau/{reseauPost}', [EtudiantController::class, 'destroy'])->name('reseau.delete');
+// // Méthode pour supprimer un étudiant
+Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');

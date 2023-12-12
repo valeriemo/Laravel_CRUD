@@ -15,8 +15,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $etudiants = Etudiant::all();
-        return view('reseau.index', compact('etudiants'));
+        $etudiants = Etudiant::orderBy('id','desc')->select()->paginate(10);
+        return view('reseau.index',  compact('etudiants'));
     }
 
     /**
@@ -48,11 +48,9 @@ class EtudiantController extends Controller
             'date_naissance' => 'required|date|before:today|max:20|date_format:Y-m-d',
             'ville_id' => 'required|integer',
         ]);
-
         $etudiant = new Etudiant;
         $etudiant->fill($request->all());
         $etudiant->save();
-
         return redirect(route('etudiant.index'))->withSuccess('Nouvel étudiant créer !');
     }
 
@@ -76,7 +74,6 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        //je récupère toutes les villes
         $villes = DB::table('villes')->get();
         $etudiant = Etudiant::find($etudiant->id);
         return view('reseau.edit', compact('etudiant', 'villes'));
@@ -91,15 +88,23 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-            $etudiant->update([
-                'nom' => $request->nom,
-                'adresse' => $request->adresse,
-                'telephone' => $request->telephone,
-                'email' => $request->email,
-                'date_naissance' => $request->date_naissance,
-                'ville_id' => $request->ville_id,
-            ]);
-            return redirect()->route('etudiant.index')->withSuccess('Étudiant modifié !');
+        $request->validate([ //validation des champs
+            'nom' => 'required|min:2|max:45',
+            'adresse' => 'required|min:3|max:150',
+            'telephone' => 'required|min:7|max:25',
+            'email' => 'required|email|max:60',
+            'date_naissance' => 'required|date|before:today|max:20|date_format:Y-m-d',
+            'ville_id' => 'required|integer',
+        ]);
+        $etudiant->update([
+            'nom' => $request->nom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'date_naissance' => $request->date_naissance,
+            'ville_id' => $request->ville_id,
+        ]);
+        return redirect()->route('etudiant.index')->withSuccess('Étudiant modifié !');
     }
 
     /**
@@ -110,7 +115,8 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-            $etudiant->delete();
-            return redirect()->route('etudiant.index')->withSuccess('Étudiant supprimé !');
+        
+        $etudiant->delete();
+        return redirect()->route('etudiant.index')->withSuccess('Étudiant supprimé !');
     }
 }

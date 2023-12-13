@@ -4,7 +4,10 @@
 > Création d'une lateforme d'Information et réseau social pour les
 étudiants du College Maisonneuve avec Laravel (CRUD).
 
-### 🏠 [Homepage](/etudiant-reseau)
+## Technologies 🖥 👩‍💻
+- Laravel (PHP)
+- MySQL
+- HTML (blade), CSS (Bootstrap), JS
 
 ## Run tests
 
@@ -18,10 +21,4 @@ php artisan serve
 
 * Github: [@valeriemo](https://github.com/valeriemo)
 
-## Show your support
 
-Give a ⭐️ if this project helped you!
-
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

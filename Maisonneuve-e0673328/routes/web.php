@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\EtudiantController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CustomAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,6 @@ Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'upd
 
 // // Méthode pour supprimer un étudiant
 Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');
+
+// // Méthode pour afficher la page de creation d'un compte étudiant
+Route::get('/registration', [CustomAuthController::class, 'create'])->name('registration');

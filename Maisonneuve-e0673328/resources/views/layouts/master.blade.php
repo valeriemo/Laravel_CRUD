@@ -20,8 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('etudiant.index')}}">Liste des étudiants</a>
                 </li>
+                <!-- cette fonction sera peut-etre utile pour la suite -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('etudiant.create')}}">Créer un étudiant</a>
+                    <a class="nav-link" href="{{route('etudiant.create')}}">Ajouter un étudiant</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="">Se connecter</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{route('registration')}}">Créer un compte étudiant</a>
                 </li>
             </ul>
         </div>

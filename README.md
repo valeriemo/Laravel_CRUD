@@ -1,5 +1,4 @@
 # Welcome to Réseau Étudiant 👋
-![Version](https://img.shields.io/badge/version-1.0 | TP 1-blue.svg?cacheSeconds=2592000)
 
 > Création d'une lateforme d'Information et réseau social pour les
 étudiants du College Maisonneuve avec Laravel (CRUD).
@@ -21,4 +20,10 @@ php artisan serve
 
 * Github: [@valeriemo](https://github.com/valeriemo)
 
+
+<img width="839" alt="applaravel" src="https://github.com/valeriemo/Laravel_CRUD/assets/7307498/c180fca4-2c53-4523-96e7-4102ff1a5794">
+
+
+
+https://github.com/valeriemo/Laravel_CRUD/assets/7307498/138d4b21-856b-4fa6-883f-c740584f3378
 

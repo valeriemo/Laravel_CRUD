@@ -15,7 +15,7 @@ class Ville extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nom',
+        'ville',
     ];
 
     public function etudiants()

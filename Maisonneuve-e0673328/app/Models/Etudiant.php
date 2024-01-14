@@ -16,15 +16,18 @@ class Etudiant extends Model
         'email',
         'date_naissance',
         'ville_id',
+        'user_id' 
     ];
 
+    // ajout pour la relation avec User
     public function etudiantHasVille()
     {
         return $this->hasOne(Etudiant::class);
     }
     
+    // ajout pour la relation avec Ville
     public function ville()
     {
-        return $this->belongsTo(Ville::class);
+        return $this->hasOne(Ville::class);
     }
 }

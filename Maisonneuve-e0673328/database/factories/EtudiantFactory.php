@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Ville;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +24,8 @@ class EtudiantFactory extends Factory
             'telephone' => $this->faker->phoneNumber,
             'email' => $this->faker->unique()->safeEmail,
             'date_naissance' => $this->faker->date(),
-            'ville_id' => Ville::factory(),
+            'villes_id' => Ville::all()->random()->id,
+            'user_id' => User::all()->random()->id // ajout pour la relation
         ];
     }
 }

@@ -46,7 +46,7 @@ class EtudiantController extends Controller
             'telephone' => 'required|min:7|max:25',
             'email' => 'required|email|unique:etudiants|max:60',
             'date_naissance' => 'required|date|before:today|max:20|date_format:Y-m-d',
-            'ville_id' => 'required|integer',
+            'ville_id' => 'required|integer|exists:villes,id',
         ]);
         $etudiant = new Etudiant;
         $etudiant->fill($request->all());

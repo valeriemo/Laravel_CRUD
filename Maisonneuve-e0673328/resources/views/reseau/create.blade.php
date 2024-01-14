@@ -32,7 +32,7 @@
                         <label for="body">Ville</label>
                         <select id="ville_id" name="ville_id" class="form-control">
                             @foreach($villes as $ville)
-                                <option value="{{ $ville->id }}" >{{$ville->nom}}</option>
+                                <option value="{{ $ville->id }}" >{{$ville->ville}}</option>
                             @endforeach
                         </select>
                     </div>

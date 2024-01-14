@@ -44,7 +44,6 @@ class EtudiantController extends Controller
             'nom' => 'required|min:2|max:45',
             'adresse' => 'required|min:3|max:150',
             'telephone' => 'required|min:7|max:25',
-            'email' => 'required|email|unique:etudiants|max:60',
             'date_naissance' => 'required|date|before:today|max:20|date_format:Y-m-d',
             'ville_id' => 'required|integer|exists:villes,id',
         ]);

@@ -13,43 +13,56 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
-        <img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+        <div class="collapse navbar-collapse">
+            <a href="{{ Auth::user() ? route('blog.index') : route('login') }}"><img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
+            </a>
+
+            <p> Hello {{Auth::user() ? Auth::user()->username : "Guest"}}</p>
+        </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('etudiant.index')}}">Liste des étudiants</a>
-                </li>
-                <!-- cette fonction sera peut-etre utile pour la suite -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('etudiant.create')}}">Ajouter un étudiant</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="">Se connecter</a>
+                    <a class="nav-link" href="{{ route('login') }}">Se connecter</a>
                 </li>
                 <li>
                     <a class="nav-link" href="{{route('registration')}}">Créer un compte étudiant</a>
                 </li>
+                @else
+                <!-- cette fonction sera peut-etre utile pour la suite -->
+                <li>
+                    <a class="nav-link" href="{{route('etudiant.index')}}">Liste des étudiants</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="">Vos articles</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="">Écrire un article</a>
+                </li>
+                @endguest
+                <!--choix de la langue || Fr / En -->
             </ul>
         </div>
-</nav>
-<main>
+    </nav>
+    <main>
 
-    <div class="container mt-5">
-        @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ session('success')}}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="container mt-5">
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            @yield('content')
         </div>
-        @endif
-        @yield('content')
-    </div>
 
-</main>
+    </main>
 
     <footer>
-        <p>&copy; 2023 Valérie Moreau. TP 1 | Laravel CRUD.</p>
+        <p>&copy; 2023 Valérie Moreau. TP 2 | Laravel CRUD.</p>
     </footer>
 
 </body>
+
 </html>

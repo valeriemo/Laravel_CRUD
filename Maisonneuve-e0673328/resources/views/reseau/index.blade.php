@@ -16,6 +16,7 @@
                         <th scope="col">Numéro de téléphone</th>
                         <th scope="col">Date de naissance</th>
                         <th scope="col">Adresse mail</th>
+                        <th scope="col">Username</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -24,10 +25,11 @@
                     <tr>
                         <td>{{ $etudiant->nom }}</td>
                         <td>{{ $etudiant->adresse }}</td>
-                        <td>{{ $etudiant->ville->nom }}</td>
+                        <td>{{ $etudiant->etudiantHasVille->ville }}</td>
                         <td>{{ $etudiant->telephone }}</td>
                         <td>{{ $etudiant->date_naissance }}</td>
-                        <td>{{ $etudiant->email }}</td>
+                        <td>{{ $etudiant->etudiantHasUser->email }}</td>
+                        <td>{{ $etudiant->etudiantHasUser->username }}</td>
                         <td>
                             <a href="{{ route('etudiant.show', $etudiant->id) }}" class="btn btn-custom">Voir</a>
                             <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-custom">Éditer</a>

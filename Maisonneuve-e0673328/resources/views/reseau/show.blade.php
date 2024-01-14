@@ -13,9 +13,17 @@
                     <h5 class="card-title">{{ $etudiant->nom }}</h5>
                     <p class="card-text">
                         <strong>Adresse:</strong> {{ $etudiant->adresse }}<br>
-                        <strong>Ville:</strong> {{ $etudiant->ville->nom }}<br>
+                        <strong>Ville:</strong> {{ $etudiant->etudiantHasVille->ville }}<br>
                         <strong>Numéro de téléphone:</strong> {{ $etudiant->date_naissance }}<br>
-                        <strong>Adresse mail:</strong> {{ $etudiant->email }}
+                        <strong>Adresse mail:</strong> {{ $etudiant->etudiantHasUser->email }}
+                    </p>
+                </div>
+                <div class="card-header bg-custom text-white">
+                    Informations Utilisateur
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>username:</strong> {{ $etudiant->etudiantHasUser->username }}<br>
                     </p>
                 </div>
             </div>

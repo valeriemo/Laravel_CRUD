@@ -1,15 +1,16 @@
 @extends('layouts/master')
 @section('content')
 
-    <div class="container typo">
-        <div class="row">
-            <div class="container d-flex justify-content-center">
-                <form action="{{ route('etudiant.store')}}" method="post">
+<div class="container typo">
+    <div class="row">
+        <div class="container d-flex justify-content-center">
+            <form action="{{ route('registration') }}" method="post">
                 @csrf
                 <h1 class="card-header mb-3 display-4 text-center titre">
-                    Créer un étudiant
+                    Créer un compte étudiant
                 </h1>
                 <div class="card-body">
+                <h2 class="mt-3 mb-3 display-7 text-center titre">Information d'Étudiant</h2>
                     <div class="mb-3">
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom') }}">
@@ -32,7 +33,7 @@
                         <label for="body">Ville</label>
                         <select id="ville_id" name="ville_id" class="form-control">
                             @foreach($villes as $ville)
-                                <option value="{{ $ville->id }}" >{{$ville->ville}}</option>
+                            <option value="{{ $ville->id }}">{{$ville->ville}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -46,15 +47,6 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <label for="email">Adresse mail</label>
-                        <input id="email" name="email" class="form-control" value="{{ old('email') }}"></input>
-                        @if ($errors->has('email'))
-                        <div class="text-danger-danger">
-                            {{$errors->first('email')}}
-                        </div>
-                        @endif
-                    </div>
-                    <div class="mb-3">
                         <label for="date_naissance">Date de naissance</label>
                         <input type="date" id="date_naissance" name="date_naissance" class="form-control" value="{{ old('date_naissance') }}"></input>
                         @if ($errors->has('date_naissance'))
@@ -63,13 +55,49 @@
                         </div>
                         @endif
                     </div>
-
-                <div class="card-footer text-center">
+                    <h2 class="mt-3 mb-3 display-7 text-center titre">Information d'utilisateur</h2>
+                    <div class="mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" minlength="6" maxlength="25" name="username" class="form-control" value="{{ old('username') }}">
+                        @if ($errors->has('username'))
+                        <div class="text-danger-danger">
+                            {{$errors->first('username')}}
+                        </div>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">email</label>
+                        <input type="text" id="email" name="email" class="form-control" value="{{ old('email') }}">
+                        @if ($errors->has('email'))
+                        <div class="text-danger-danger">
+                            {{$errors->first('email')}}
+                        </div>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Mot de passe</label>
+                        <input type="text" id="password" minlength="6" maxlength="20" name="password" class="form-control" value="{{ old('password') }}">
+                        @if ($errors->has('password'))
+                        <div class="text-danger-danger">
+                            {{$errors->first('password')}}
+                        </div>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_confirmation">Confirmation du mot de passe</label>
+                        <input type="text" id="password_confirmation" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
+                        @if ($errors->has('password'))
+                        <div class="text-danger-danger">
+                            {{$errors->first('password')}}
+                        </div>
+                        @endif
+                    </div>
+                    <div class="card-footer text-center">
                         <input type="submit" value="Sauvegarder" class="btn btn-custom">
-                </div>
+                    </div>
             </form>
-            </div>
         </div>
     </div>
+</div>
 
 @endsection

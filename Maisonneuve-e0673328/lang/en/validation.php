@@ -11,6 +11,7 @@ return [
     | the validator class. Some of these rules have multiple versions such
     | as the size rules. Feel free to tweak each of these messages here.
     |
+    password doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial. min-6 max-20
     */
 
     'accepted' => 'The :attribute must be accepted.',

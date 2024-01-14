@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nom', 45);
             $table->string('adresse', 150);
             $table->string('telephone', 25);
-            $table->string('email', 60)->unique();
             $table->string('date_naissance', 20);
             $table->unsignedBigInteger('ville_id');
             $table->unsignedBigInteger('user_id'); // ajout pour la relation

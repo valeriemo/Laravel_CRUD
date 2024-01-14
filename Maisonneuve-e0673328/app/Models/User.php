@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
     ];
@@ -26,9 +26,15 @@ class User extends Authenticatable
     // ajout pour la relation avec Etudiant 1-1
     public function userHasEtudiant()
     {
-        return $this->hasOne(Etudiant::class);
+        return $this->hasOne(Etudiant::class, 'user_id' , 'id');
     }
 
+    // ajout pour la relation avec Blog 1-n
+    public function userHasBlog()
+    {
+        return $this->hasMany(Blog::class, 'blog_id');
+    }
+    
     /**
      * The attributes that should be hidden for serialization.
      *

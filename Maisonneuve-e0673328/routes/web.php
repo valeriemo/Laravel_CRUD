@@ -3,6 +3,9 @@
 use App\Http\Controllers\EtudiantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\BlogController;
+use App\Models\Blog;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,13 +34,22 @@ Route::get('/etudiant-create', [EtudiantController::class, 'create'])->name('etu
 Route::post('/etudiant-create', [EtudiantController::class, 'store'])->name('etudiant.store');
 
 // Méthode pour afficher la page de modification
-Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit')->middleware('auth');;
 
 // // Méthode pour store le update
-Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.edit');
+Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.edit')->middleware('auth');
 
 // // Méthode pour supprimer un étudiant
-Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');
+Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete')->middleware('auth');
 
 // // Méthode pour afficher la page de creation d'un compte étudiant
-Route::get('/registration', [CustomAuthController::class, 'create'])->name('registration');
+Route::get('registration', [CustomAuthController::class, 'create'])->name('registration');
+Route::post('registration', [CustomAuthController::class, 'store'])->name('registration');
+// // Méthode pour afficher la page de login
+Route::get('/login',  [CustomAuthController::class, 'index'])->name('login'); //la page login doit toujours s'appeller login
+Route::post('/authentication',  [CustomAuthController::class, 'authentication'])->name('authentication');
+
+
+// Route pour les Blogs
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
+Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');

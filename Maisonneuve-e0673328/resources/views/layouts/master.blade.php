@@ -38,7 +38,7 @@
                     <a class="nav-link" href="">Vos articles</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="">Écrire un article</a>
+                    <a class="nav-link" href="{{ route('blog.create') }}">Écrire un article</a>
                 </li>
                 @endguest
                 <!--choix de la langue || Fr / En -->

@@ -48,6 +48,7 @@ Route::post('registration', [CustomAuthController::class, 'store'])->name('regis
 // // Méthode pour afficher la page de login
 Route::get('/login',  [CustomAuthController::class, 'index'])->name('login'); //la page login doit toujours s'appeller login
 Route::post('/authentication',  [CustomAuthController::class, 'authentication'])->name('authentication');
+Route::get('/logout',[CustomAuthController::class, 'logout'])->name('logout');
 
 
 // Route pour les Blogs

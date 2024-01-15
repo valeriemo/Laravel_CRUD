@@ -3,14 +3,15 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card">
-
-            <form action="{{ route('authentication')}}" method="post">
-                @csrf
-                <div class="card-header display-6 text-center">
+        <div class="card card-custom">
+                <div class="mb-3 display-4 text-center titre">
                     Login
                 </div>
+            <form action="{{ route('authentication')}}" method="post">
+                @csrf
+
                 <div class="card-body">
+
                     @if (!$errors->isEmpty())
                     <div class="alert alert-danger">
                         <ul>
@@ -20,6 +21,7 @@
                         </ul>
                     </div>
                     @endif
+
                     <div class="control-group col-12">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}">
@@ -39,8 +41,8 @@
                     </div>
                     @endif
                 </div>
-                <div class="card-footer text-center">
-                    <input type="submit" value="Connecter" class="btn btn-success">
+                <div class="text-center">
+                    <input type="submit" value="Connecter" class="btn btn-custom">
                 </div>
             </form>
 

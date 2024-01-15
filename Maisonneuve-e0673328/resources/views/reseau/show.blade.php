@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <h1 class="card-header mb-3 display-4 text-center titre">Étudiant</h1>
-            <div class="card">
+            <div class="card ">
                 <div class="card-header bg-custom text-white">
                     Informations sur l'étudiant
                 </div>

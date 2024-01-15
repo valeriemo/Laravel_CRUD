@@ -40,6 +40,9 @@
                 <li>
                     <a class="nav-link" href="{{ route('blog.create') }}">Écrire un article</a>
                 </li>
+                <li>
+                    <a class="nav-link" href="{{ route('logout') }}">Déconnection</a>
+                </li>
                 @endguest
                 <!--choix de la langue || Fr / En -->
             </ul>

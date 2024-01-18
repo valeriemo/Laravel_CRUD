@@ -50,7 +50,6 @@ class CustomAuthController extends Controller
             'username' => 'required|min:6|max:45',
             'email' => 'email|required|unique:users',
             'password' => 'min:6|max:20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/|required_with:password_confirmation|confirmed',
-            'password_confirmation' => 'same:password',
         ]);
     
         // Création du User

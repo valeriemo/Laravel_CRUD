@@ -25,33 +25,33 @@ class Blog extends Model
         return $this->hasOne(User::class, 'id' , 'user_id');
     }
 
+    // Pour optimiser le code créer un blogRessource et l'appeler au lieu du model + ajoute le code qui verifie le language (prétraitement de donnee (pas de bloghasuser))
+    /**
+     * Récupérer le contenu de la colonne 'titre' ou 'titre_en' selon la langue de la session
+     */
     static public function titreSelect()
     {
         // Récupérer la langue de la session
-        $lang = session()->get('localeDB');
-    
+        $lang = session()->get('localeDB');    
         // Si la langue est définie à 'fr', ajuster la langue pour utiliser la version française
         if (session()->has('locale') && session()->get('locale') == 'En') {
             $lang = "_en";
         }
-    
         // Utiliser DB::raw pour construire la requête SQL avec la bonne colonne
         return self::select('id',
             DB::raw("(CASE WHEN titre$lang IS NULL THEN titre ELSE titre$lang END) as titre")
         )->orderBy('id')->get();
     }
 
+    /**
+     * Récupérer le contenu de la colonne 'contenu' ou 'contenu_en' selon la langue de la session
+     */
     static public function contenuSelect()
     {
-        // Récupérer la langue de la session
-        $lang = session()->get('localeDB');
-    
-        // Si la langue est définie à 'fr', ajuster la langue pour utiliser la version française
+        $lang = session()->get('localeDB');    
         if (session()->has('locale') && session()->get('locale') == 'En') {
             $lang = "_en";
         }
-    
-        // Utiliser DB::raw pour construire la requête SQL avec la bonne colonne
         return self::select('id',
             DB::raw("(CASE WHEN contenu$lang IS NULL THEN contenu ELSE contenu$lang END) as contenu")
         )->orderBy('id')->get();

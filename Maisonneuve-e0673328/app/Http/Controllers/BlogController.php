@@ -23,7 +23,6 @@ class BlogController extends Controller
             $blog->titre = $titres->find($blog->id)->titre;
             $blog->contenu = $contenus->find($blog->id)->contenu;
         }
-
         return view('blog.index',  compact('blogs'));
     }
 

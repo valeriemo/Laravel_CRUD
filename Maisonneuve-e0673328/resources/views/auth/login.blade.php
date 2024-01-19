@@ -5,7 +5,7 @@
     <div class="col-md-6">
         <div class="card card-custom">
                 <div class="mb-3 display-4 text-center titre">
-                    Login
+                    @lang('lang.login')
                 </div>
             <form action="{{ route('authentication')}}" method="post">
                 @csrf
@@ -23,7 +23,7 @@
                     @endif
 
                     <div class="control-group col-12">
-                        <label for="email">Email</label>
+                        <label for="email">@lang('lang.email')</label>
                         <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}">
                         @if ($errors->has('email'))
                         <div class="text-danger">
@@ -32,7 +32,7 @@
                         @endif
                     </div>
                     <div class="control-group col-12">
-                        <label for="password">Password</label>
+                        <label for="password">@lang('lang.password')</label>
                         <input type="password" id="password" name="password" class="form-control">
                     </div>
                     @if ($errors->has('password'))
@@ -42,7 +42,7 @@
                     @endif
                 </div>
                 <div class="text-center">
-                    <input type="submit" value="Connecter" class="btn btn-custom">
+                    <input type="submit" value="@lang('lang.login')" class="btn btn-custom">
                 </div>
             </form>
 

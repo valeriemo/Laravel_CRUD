@@ -8,6 +8,7 @@ class LocalizationController extends Controller
 {
     //http://localhost:8001/lang/fr
     public function index($locale){
+        var_dump($locale);
         session()->put('locale', $locale);
         return redirect()->back();
     }

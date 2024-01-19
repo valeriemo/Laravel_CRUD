@@ -1,11 +1,10 @@
 <?php
-
 use App\Http\Controllers\EtudiantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\BlogController;
 use App\Models\Blog;
-
+use App\Http\Controllers\LocalizationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +44,7 @@ Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destro
 // // Méthode pour afficher la page de creation d'un compte étudiant
 Route::get('registration', [CustomAuthController::class, 'create'])->name('registration');
 Route::post('registration', [CustomAuthController::class, 'store'])->name('registration');
+
 // // Méthode pour afficher la page de login
 Route::get('/login',  [CustomAuthController::class, 'index'])->name('login'); //la page login doit toujours s'appeller login
 Route::post('/authentication',  [CustomAuthController::class, 'authentication'])->name('authentication');
@@ -54,3 +54,6 @@ Route::get('/logout',[CustomAuthController::class, 'logout'])->name('logout');
 // Route pour les Blogs
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
 Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
+
+// Route pour la langue
+Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

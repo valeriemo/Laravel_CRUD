@@ -1,3 +1,5 @@
+@php $locale = session()->get('locale'); @endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,33 +20,34 @@
             <a href="{{ Auth::user() ? route('blog.index') : route('login') }}"><img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
             </a>
 
-            <p> Hello {{Auth::user() ? Auth::user()->username : "Guest"}}</p>
+            <p>@lang('lang.welcome') {{Auth::user() ? Auth::user()->username : "Guest"}}</p>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Se connecter</a>
+                    <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="{{route('registration')}}">Créer un compte étudiant</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('registration') }}">@lang('lang.register')</a>
                 </li>
                 @else
-                <!-- cette fonction sera peut-etre utile pour la suite -->
-                <li>
-                    <a class="nav-link" href="{{route('etudiant.index')}}">Liste des étudiants</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('blog.index') }}">@lang('lang.blog-all')</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="">Vos articles</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('blog.create') }}">@lang('write')</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="{{ route('blog.create') }}">Écrire un article</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="{{ route('logout') }}">Déconnection</a>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link icon-lang" href="{{ route('lang', 'en') }}"><img src="{{ asset('img/english.svg') }}" alt="English"></a>
                 </li>
-                @endguest
-                <!--choix de la langue || Fr / En -->
+                <li class="nav-item">
+                    <a class="nav-link icon-lang" href="{{ route('lang', 'fr') }}"><img src="{{ asset('img/french.svg') }}" alt="Francais"></a>
+                </li>
             </ul>
         </div>
     </nav>

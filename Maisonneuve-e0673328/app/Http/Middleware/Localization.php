@@ -18,11 +18,17 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('locale') && session()->get('locale') != 'en') {
+        // Vérifie si une variable de session 'locale' existe et si elle n'est pas égale à 'en'
+        if (session()->has('locale') && session()->get('locale') != 'fr') {
+            // Si c'est le cas, défini la locale de l'application à la valeur de 'locale' en session
             App::setLocale(session()->get('locale'));
+            var_dump(session()->get('locale'));
+            // Ajoute à la session une clé 'localeDB' avec la valeur '_'+valeur de 'locale' en session
             session()->put('localeDB', '_'.session()->get('locale'));
         }else{
-            session()->put('localeDB'); // si c'est lang EN par défaut rien ne change (pas besoin d'ajouter _)
+            session()->put('localeDB'); // si c'est lang FR par défaut rien ne change (pas besoin d'ajouter _)
+            var_dump(session()->get('locale'));
+
         }
         return $next($request);
     }

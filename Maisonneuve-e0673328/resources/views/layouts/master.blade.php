@@ -36,7 +36,7 @@
                     <a class="nav-link" href="{{ route('blog.index') }}">@lang('lang.blog-all')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blog.create') }}">@lang('write')</a>
+                    <a class="nav-link" href="{{ route('blog.create') }}">@lang('lang.write')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a>

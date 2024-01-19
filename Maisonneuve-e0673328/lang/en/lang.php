@@ -21,6 +21,14 @@ return [
     'username' => 'Username',
     'password_confirmation' => 'Confirm password',
     'save' => 'Save',
+    // Page d'accueil | les articles
+    'article_title' => 'Last Blog posts',
+    'titre' => 'Title',
+    'contenu' => 'Content',
+    'auteur' => 'Author',
+    'date' => 'Publication date',
+    'lire' => 'Read',
+    'edit' => 'Edit',
 ]
 
 ?>

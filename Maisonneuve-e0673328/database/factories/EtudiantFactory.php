@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Factories;
-
 use App\Models\Ville;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,13 +17,15 @@ class EtudiantFactory extends Factory
      */
     public function definition()
     {
+
         return [
             'nom' => $this->faker->lastName,
             'adresse' => $this->faker->address,
             'telephone' => $this->faker->phoneNumber,
-            'date_naissance' => $this->faker->date(),
-            'villes_id' => Ville::all()->random()->id,
-            'user_id' => User::all()->random()->id // ajout pour la relation
+            'date_naissance' => $this->faker->date('Y-m-d'),
+            'ville_id' => Ville::all()->random()->id,
+            'user_id' => User::all()->random()->id,
         ];
     }
+
 }

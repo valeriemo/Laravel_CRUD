@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('date_naissance', 20);
             $table->unsignedBigInteger('ville_id');
             $table->unsignedBigInteger('user_id'); // ajout pour la relation
-            $table->foreign('user_id')->references('id')->on('users'); // ajout pour la relation
+            $table->foreign('user_id')->references('id')->on('users')->unique(); // ajout pour la relation
+            $table->unique('user_id');
             $table->foreign('ville_id')->references('id')->on('villes');
             $table->timestamps();
         });

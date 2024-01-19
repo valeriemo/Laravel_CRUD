@@ -10,7 +10,7 @@
                     @lang('lang.register')
                 </h1>
                 <div class="card-body">
-                <h2 class="mt-3 mb-3 display-7 text-center titre">@lang('lang.student_information')</h2>
+                <h2 class="mb-3 display-7 text-center titre">@lang('lang.student_information')</h2>
                     <div class="mb-3">
                         <label for="nom">@lang('lang.name')</label>
                         <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom') }}">

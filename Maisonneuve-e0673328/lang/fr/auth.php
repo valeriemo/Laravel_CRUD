@@ -13,7 +13,7 @@ return array(
     |
     */
 
-    "password" => "Les mots de passe doivent avoir au moins six caractères et doivent être identiques.",
+    "password" => "Le mot de passe ne correspondent pas.",
 
     "user"     => "Nous ne pouvons trouver cet utilisateur avec cette adresse e-mail.",
 

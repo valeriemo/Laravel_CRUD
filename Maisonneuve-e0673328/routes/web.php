@@ -20,8 +20,9 @@ use App\Http\Controllers\LocalizationController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route pour afficher tous les étudiants
-Route::get('/etudiant-reseau', [EtudiantController::class, 'index'])->name('etudiant.index'); // Route pour afficher tous les étudiants
+
+// PAGE D'ACCUEIL ! Route pour afficher tous les blogs 
+Route::get('/etudiant-reseau', [BlogController::class, 'index'])->name('blog.index'); // Route pour afficher tous les étudiants
 
 // Méthode pour afficher la page de détail d'un étudiant
 Route::get('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');

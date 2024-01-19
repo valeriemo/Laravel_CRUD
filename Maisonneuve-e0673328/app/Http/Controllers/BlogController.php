@@ -17,6 +17,13 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::orderBy('id', 'desc')->select()->paginate(10);
+        $titres = Blog::titreSelect();
+        $contenus = Blog::contenuSelect();
+        foreach ($blogs as $blog) {
+            $blog->titre = $titres->find($blog->id)->titre;
+            $blog->contenu = $contenus->find($blog->id)->contenu;
+        }
+
         return view('blog.index',  compact('blogs'));
     }
 

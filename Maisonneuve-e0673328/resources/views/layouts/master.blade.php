@@ -19,7 +19,6 @@
         <div class="collapse navbar-collapse">
             <a href="{{ Auth::user() ? route('blog.index') : route('login') }}"><img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
             </a>
-
             <p>@lang('lang.welcome') {{Auth::user() ? Auth::user()->username : "Guest"}}</p>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

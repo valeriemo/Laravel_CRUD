@@ -94,7 +94,7 @@ class CustomAuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         Auth::login($user);
-        return redirect()->intended(route('etudiant.index'));
+        return redirect()->intended(route('blog.index'));
     }
 
     /**

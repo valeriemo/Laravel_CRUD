@@ -43,8 +43,8 @@ Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'upd
 Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete')->middleware('auth');
 
 // // Méthode pour afficher la page de creation d'un compte étudiant
-Route::get('registration', [CustomAuthController::class, 'create'])->name('registration');
-Route::post('registration', [CustomAuthController::class, 'store'])->name('registration');
+Route::get('/registration', [CustomAuthController::class, 'create'])->name('registration');
+Route::post('/registration', [CustomAuthController::class, 'store'])->name('registration');
 
 // // Méthode pour afficher la page de login
 Route::get('/login',  [CustomAuthController::class, 'index'])->name('login'); //la page login doit toujours s'appeller login
@@ -55,6 +55,9 @@ Route::get('/logout',[CustomAuthController::class, 'logout'])->name('logout');
 // Route pour les Blogs
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
 Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
+Route::post('/blog-create', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
+Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit');
 
 // Route pour la langue
 Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

@@ -35,4 +35,32 @@ class BlogController extends Controller
     {
         return view('blog.create');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\  $etudiant
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Blog $blog)
+    {
+        $blog = Blog::find($blog->id);
+        $titre = Blog::titreSelect();
+        $contenu = Blog::contenuSelect();
+        $blog->titre = $titre->find($blog->id)->titre;
+        $blog->contenu = $contenu->find($blog->id)->contenu;
+        return view('blog.blog-show', compact('blog'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\  $etudiant
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Blog $etudiant)
+    {
+        $blog = Blog::find($etudiant->id);
+        return view('blog.blog-edit', compact('blog'));
+    }
 }

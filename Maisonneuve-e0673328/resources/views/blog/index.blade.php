@@ -25,9 +25,9 @@
                         <td>{{ $blog->blogHasUser->username }}</td>
                         <td>{{ $blog->date }}</td>
                         <td>
-                            <a href="" class="btn btn-custom">@lang('lang.lire')</a>
+                            <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-custom">@lang('lang.lire')</a>
                             <!-- Éditer dispo seulement si l'utilisateur est connecté et que l'utilisateur est l'auteur du blog -->
-                            <a href="" class="btn btn-custom">@lang('lang.edit')</a>
+                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-custom">@lang('lang.edit')</a>
                         </td>
                     </tr>
                     @endforeach

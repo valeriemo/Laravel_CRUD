@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="contenu_en">@lang('lang.contenu')</label>
-            <textarea type="text" id="contenu_en" name="contenu_en" class="form-control" value="{{ old('contenu_en') }}"></textarea>
+            <textarea type="text" id="contenu_en" name="contenu_en" class="form-control">{{ old('contenu_en') }}</textarea>
             @if ($errors->has('contenu'))
             <div class="text-danger-danger">
                 {{$errors->first('contenu')}}

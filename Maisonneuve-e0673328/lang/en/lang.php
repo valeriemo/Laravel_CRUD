@@ -6,6 +6,7 @@ return [
     'register' => 'Register as a student',
     'logout' => 'Logout',
     'blog-all' => 'Blog posts',
+    'files' => 'Files',
     'write' => 'Write a blog post',
     // Page login
     'email' => 'Email',

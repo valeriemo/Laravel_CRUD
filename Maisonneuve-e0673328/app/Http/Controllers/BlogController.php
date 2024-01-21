@@ -52,6 +52,22 @@ class BlogController extends Controller
         return view('blog.blog-show', compact('blog'));
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([ //validation des champs
+            'titre' => 'required|min:2|max:60',
+            'contenu' => 'required|min:3|max:400',
+            'titre_en' => 'required|min:2|max:60',
+            'contenu_en' => 'nullable|min:3|max:400',
+            'date' => 'required|date|max:20|date_format:Y-m-d',
+            'user_id' => 'required|integer|exists:users,id',
+        ]);
+        $blog = new Blog();
+        $blog->fill($request->all());
+        $blog->save();
+        return redirect(route('blog.index'))->withSuccess('Nouveau blog créer !');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,11 +84,11 @@ class BlogController extends Controller
     public function update(Request $request, Blog $etudiant)
     {
         $request->validate([ //validation des champs
-            'titre' => 'required|min:2|max:45',
-            'contenu' => 'required|min:3|max:150',
-            'titre_en' => 'required|min:2|max:45',
-            'contenu_en' => 'required|min:3|max:150',
-            'date' => 'required|date|before:today|max:20|date_format:Y-m-d',
+            'titre' => 'required|min:2|max:60',
+            'contenu' => 'required|min:3|max:400',
+            'titre_en' => 'required|min:2|max:60',
+            'contenu_en' => 'min:3|max:400',
+            'date' => 'required|date|max:20|date_format:Y-m-d|before_or_equal:today',
             'user_id' => 'required|integer|exists:users,id',
         ]);
         $etudiant->update([

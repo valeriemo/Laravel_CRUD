@@ -6,7 +6,8 @@ return [
     'login' => 'Se connecter',
     'register' => 'Créer un compte étudiant',
     'logout' => 'Se déconnecter',
-    'blog-all' => 'Les articles',
+    'blog-all' => 'Forum',
+    'files' => 'Documents',
     'write' => 'Écrire un article',
     // Page login
     'email' => 'Courriel',

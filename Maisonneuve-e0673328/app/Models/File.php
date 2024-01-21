@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'fileName',
+        'path',
+        'user_id' 
+    ];
+
+    // ajout pour la relation avec le user
+    public function fileHasUser()
+    {
+        return $this->hasOne('App\Models\User', 'id' , 'user_id');
+    }
+    
 }

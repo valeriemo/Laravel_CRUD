@@ -10,7 +10,7 @@ text-muted : Texte de couleur atténuée. */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Color+Emoji&family=Roboto:ital,wght@0,400;1,300&display=swap');
 :root {
   --primary-color: #6E44FF;
-  --secondary-color: #2E294E;
+  --secondary-color: #2e294e;
   --background-color: #EADEDA;
   --success-color: #38E4AE;
   --danger-color: #d45c72;  

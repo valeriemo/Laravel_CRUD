@@ -34,6 +34,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class, 'blog_id');
     }
+
+    // ajout pour la relation avec File 1-n
+    public function userHasFile()
+    {
+        return $this->hasMany(File::class, 'file_id');
+    }
     
     /**
      * The attributes that should be hidden for serialization.

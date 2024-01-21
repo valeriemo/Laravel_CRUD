@@ -209,3 +209,13 @@ footer{
     }
   }
 }
+
+.form-body.file{
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  & div {
+    display: flex;
+    flex-direction: column;
+  }
+}

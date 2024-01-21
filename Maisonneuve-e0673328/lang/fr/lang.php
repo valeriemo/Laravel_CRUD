@@ -35,7 +35,9 @@ return [
     'create_article' => 'Composer un article',
     'french_version' => 'Version Francaise',
     'english_version' => 'Version Anglaise',
-
+    // Page Files
+    'files_title' => 'Tous les documents',
+    'file_create' => 'Ajouter un document',
     ]
 
 

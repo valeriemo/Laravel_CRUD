@@ -34,6 +34,9 @@ return [
     'create_article' => 'Write a blog post',
     'french_version' =>  'French Version',
     'english_version' =>  'English Version',
+    // Page Files 
+    'files_title' => 'All Files',
+    'file_create' => 'Add a file',
 ]
 
 ?>

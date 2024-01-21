@@ -27,7 +27,9 @@
                         <td>
                             <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-custom">@lang('lang.lire')</a>
                             <!-- Éditer dispo seulement si l'utilisateur est connecté et que l'utilisateur est l'auteur du blog -->
+                            @if(Auth::check() && Auth::user()->id == $blog->blogHasUser->id)
                             <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-custom">@lang('lang.edit')</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

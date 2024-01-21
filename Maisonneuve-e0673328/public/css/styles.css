@@ -169,3 +169,43 @@ footer{
 .icon-lang{
   width: 55px;
 }
+
+/* FORM */
+.form-body{
+  background-color: var(--background-color);
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  font-family: var(--bebas);
+  & div:last-of-type > input{
+    margin-top: auto;
+  }
+  & div > label{
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 10px 0px;
+  }
+  .form-body-cart:last-of-type{ 
+    margin-right: 0px;
+  }
+  .form-body-cart{
+    padding: 10px;
+    flex-basis: 600px;
+    margin-right: 20px;
+    & h2{
+      font-family: var(--bebas);
+      color: var(--secondary-color);
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--secondary-color);
+      max-width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    & textarea{
+      height: 200px;
+      border: #6E44FF 2px solid;
+    }
+    & input{
+      border: #6E44FF 2px solid;
+    }
+  }
+}

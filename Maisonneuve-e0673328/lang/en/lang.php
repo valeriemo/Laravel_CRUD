@@ -5,7 +5,7 @@ return [
     'login' => 'Login',
     'register' => 'Register as a student',
     'logout' => 'Logout',
-    'blog-all' => 'Your blog posts',
+    'blog-all' => 'Blog posts',
     'write' => 'Write a blog post',
     // Page login
     'email' => 'Email',
@@ -29,6 +29,10 @@ return [
     'date' => 'Publication date',
     'lire' => 'Read',
     'edit' => 'Edit',
+    // Page Blog Create
+    'create_article' => 'Write a blog post',
+    'french_version' =>  'French Version',
+    'english_version' =>  'English Version',
 ]
 
 ?>

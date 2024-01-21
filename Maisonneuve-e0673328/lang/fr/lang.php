@@ -6,7 +6,7 @@ return [
     'login' => 'Se connecter',
     'register' => 'Créer un compte étudiant',
     'logout' => 'Se déconnecter',
-    'blog-all' => 'Vos articles',
+    'blog-all' => 'Les articles',
     'write' => 'Écrire un article',
     // Page login
     'email' => 'Courriel',
@@ -30,6 +30,11 @@ return [
     'date' => 'Date de publication',
     'lire' => 'Lire',
     'edit' => 'Éditer',
+    // Page Blog Create
+    'create_article' => 'Composer un article',
+    'french_version' => 'Version Francaise',
+    'english_version' => 'Version Anglaise',
+
     ]
 
 

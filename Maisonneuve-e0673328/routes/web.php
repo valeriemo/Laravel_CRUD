@@ -57,7 +57,10 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middl
 Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
 Route::post('/blog-create', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
-Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit');
+
+Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
+
+Route::put('/blog/edit', [BlogController::class, 'update'])->name('blog.edit')->middleware('auth');
 
 // Route pour la langue
 Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

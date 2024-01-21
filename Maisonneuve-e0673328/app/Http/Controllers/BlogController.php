@@ -58,9 +58,32 @@ class BlogController extends Controller
      * @param  \App\Models\  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $etudiant)
+    public function edit(Blog $blog)
     {
-        $blog = Blog::find($etudiant->id);
+        // on garde les donnees anglaises et francaises
+        $blog = Blog::find($blog->id);
         return view('blog.blog-edit', compact('blog'));
     }
+
+    public function update(Request $request, Blog $etudiant)
+    {
+        $request->validate([ //validation des champs
+            'titre' => 'required|min:2|max:45',
+            'contenu' => 'required|min:3|max:150',
+            'titre_en' => 'required|min:2|max:45',
+            'contenu_en' => 'required|min:3|max:150',
+            'date' => 'required|date|before:today|max:20|date_format:Y-m-d',
+            'user_id' => 'required|integer|exists:users,id',
+        ]);
+        $etudiant->update([
+            'titre' => $request->titre,
+            'contenu' => $request->contenu,
+            'titre_en' => $request->titre_en,
+            'contenu_en' => $request->contenu_en,
+            'date' => $request->date,
+            'user_id' => $request->user_id,
+        ]);
+        return redirect()->route('blog.index')->withSuccess('Blog modifié !');
+    }
+
 }

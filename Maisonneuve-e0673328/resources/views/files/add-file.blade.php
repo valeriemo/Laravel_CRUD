@@ -39,7 +39,6 @@
                     </div>
                     @endif
                 </div>
-
             </div>
             <div class="card-footer text-center">
                 <input type="submit" value="@lang('lang.save')" class="btn btn-custom">

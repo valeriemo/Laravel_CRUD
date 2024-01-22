@@ -76,7 +76,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="password">@lang('lang.password')</label>
-                        <input type="text" id="password" minlength="6" maxlength="20" name="password" class="form-control" value="{{ old('password') }}">
+                        <input type="password" id="password" minlength="6" maxlength="20" name="password" class="form-control" value="{{ old('password') }}">
                         @if ($errors->has('password'))
                         <div class="text-danger-danger">
                             {{$errors->first('password')}}
@@ -85,7 +85,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="password_confirmation">@lang('lang.password_confirmation')</label>
-                        <input type="text" id="password_confirmation" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
                         @if ($errors->has('password'))
                         <div class="text-danger-danger">
                             {{$errors->first('password')}}

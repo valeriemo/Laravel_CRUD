@@ -57,8 +57,16 @@ class FileController extends Controller
     }
 
     // Méthode pour store le update
-    public function update(){
-
+    public function update(Request $request){
+        $request->validate([
+            'nom' => 'required|min:2|max:60',
+            'nom_en' => 'required|min:2|max:60',
+        ]);
+        $file = File::find($request->id);
+        $file->nom = $request->nom;
+        $file->nom_en = $request->nom_en;
+        $file->save();
+        return redirect()->route('file.index')->with('success', 'File updated successfully.');
     }
 
     // Méthode pour supprimer un fichier

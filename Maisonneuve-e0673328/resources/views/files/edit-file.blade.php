@@ -5,6 +5,7 @@
 
     <div class="col-md-20">
         <form action="{{ route('file.store') }}" enctype="multipart/form-data" method="post">
+            @method('put')
             @csrf
             <h1 class="card-header mb-3 display-4 text-center titre">
                 Changer le nom du fichier
@@ -29,7 +30,7 @@
                     </div>
                     @endif
                 </div>
-
+                <input type="hidden" name="id" value="{{$file->id}}">
             </div>
             <div class="card-footer text-center">
                 <input type="submit" value="@lang('lang.save')" class="btn btn-custom">

@@ -67,7 +67,7 @@ Route::get('/add-file', [FileController::class, 'create'])->name('file.create')-
 Route::post('/add-file', [FileController::class, 'store'])->name('file.store')->middleware('auth');
 // Editer un fichier
 Route::get('/file-edit/{file}', [FileController::class, 'edit'])->name('file.edit')->middleware('auth');
-Route::put('/file-edit/{file}', [FileController::class, 'update'])->name('file.edit')->middleware('auth');
+Route::put('/file-edit', [FileController::class, 'update'])->name('file.store')->middleware('auth');
 // Supprimer un fichier
 Route::delete('/file/{file}', [FileController::class, 'destroy'])->name('file.delete')->middleware('auth');
 

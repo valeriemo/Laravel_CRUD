@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\DB;
 class BlogController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $blogs = Blog::orderBy('id', 'desc')->select()->paginate(10);
@@ -26,22 +22,13 @@ class BlogController extends Controller
         return view('blog.index',  compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('blog.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\  $etudiant
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Blog $blog)
     {
         $blog = Blog::find($blog->id);
@@ -68,16 +55,10 @@ class BlogController extends Controller
         return redirect(route('blog.index'))->withSuccess('Nouveau blog créer !');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\  $etudiant
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Blog $blog)
     {
         // on garde les donnees anglaises et francaises
-        $blog = Blog::find($blog->id);
         return view('blog.blog-edit', compact('blog'));
     }
 

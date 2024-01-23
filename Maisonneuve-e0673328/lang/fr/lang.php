@@ -9,6 +9,10 @@ return [
     'blog-all' => 'Forum',
     'files' => 'Documents',
     'write' => 'Écrire un article',
+    // Page d'accueil
+    'text-h1' => 'Bienvenue sur le réseau des étudiants',
+    'texte' => 'Connectez-vous et échangez. Rejoignez notre communauté étudiante pour des opportunités infinies de collaboration et de partage.',
+    'sous-text' => 'Rejoignez-nous maintenant !',
     // Page login
     'email' => 'Courriel',
     'password' => 'Mot de passe',

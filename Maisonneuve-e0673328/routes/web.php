@@ -17,13 +17,10 @@ use App\Http\Controllers\FileController;
 |
 */
 
-// Page d'accueil de Laravel
+// Page d'accueil du site
 Route::get('/', function () {
-    return view('welcome');
-});
-
-// PAGE D'ACCUEIL ! Route pour afficher tous les blogs 
-Route::get('/etudiant-reseau', [BlogController::class, 'index'])->name('blog.index'); // Route pour afficher tous les étudiants
+    return view('reseau.welcome');
+})->name('accueil');
 
 // // Méthode pour afficher la page de détail d'un étudiant
 // Route::get('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
@@ -58,7 +55,7 @@ Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create
 Route::post('/blog-create', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
-Route::put('/blog/edit', [BlogController::class, 'update'])->name('blog.edit')->middleware('auth');
+Route::put('/blog/edit', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
 
 // Route pour les files
 Route::get('/file-show', [FileController::class, 'index'])->name('file.index')->middleware('auth');

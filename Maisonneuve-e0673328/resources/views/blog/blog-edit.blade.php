@@ -4,7 +4,7 @@
 @section('content')
 <div class="row mx-auto justify-content-center">
     <div class="col-md-20">
-        <form action="{{ route('blog.edit') }}" method="post">
+        <form action="{{ route('blog.update') }}" method="post">
             @method('put')
             @csrf
             <h1 class="card-header mb-3 display-4 text-center titre">

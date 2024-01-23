@@ -26,7 +26,7 @@ class User extends Authenticatable
     // ajout pour la relation avec Etudiant 1-1
     public function userHasEtudiant()
     {
-        return $this->hasOne(Etudiant::class, 'user_id' , 'id');
+        return $this->belongsTo(Etudiant::class, 'user_id' , 'id');
     }
 
     // ajout pour la relation avec Blog 1-n

@@ -8,6 +8,10 @@ return [
     'blog-all' => 'Blog posts',
     'files' => 'Files',
     'write' => 'Write a blog post',
+    // Page d'accueil
+    'text-h1' => 'Welcome to the student network',
+    'texte' => 'Connect and exchange. Join our student community for endless opportunities to collaborate and share.',
+    'sous-text' => 'Join us now!',
     // Page login
     'email' => 'Email',
     'password' => 'Password',

@@ -39,9 +39,21 @@ return [
     'create_article' => 'Composer un article',
     'french_version' => 'Version Francaise',
     'english_version' => 'Version Anglaise',
+    // Page Blog Edit
+    'edit_article' => 'Éditer un article',
+    'delete' => 'Supprimer',
+    'delete-msg' => 'Supprimer cet article',
+    'delete-text' => 'Êtes-vous certain de bien vouloir supprimer cet article ?',
+    'no'  => 'Non',
     // Page Files
     'files_title' => 'Tous les documents',
     'file_create' => 'Ajouter un document',
+    'delete-file' => 'Supprimer le document',
+    // Alertes de confirmation
+    'blog_created' => 'L\'article a été créé',
+    'blog_modified' => 'L\'article a été modifié',
+    'blog_deleted' => 'L\'article a été supprimé',
+
     ]
 
 

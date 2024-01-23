@@ -39,7 +39,7 @@
         <!-- Modal -->
         <div class="text-center mt-2">
             <button type="button" class="btn btn-custom-danger" data-bs-toggle="modal" data-bs-target="#deletemodal">
-                Effacer ce fichier
+                @lang('lang.delete-file')
             </button>
         </div>
     </div>
@@ -51,14 +51,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Effacer le fichier</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@lang('lang.delete-file')</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Êtes-vous certain de bien vouloir effacer <span class="danger">{{$file->nom}}</span> ?
+                @lang('lang.delete-file-msg')<span class="danger">{{$file->nom}}</span> ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Non</button>
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">@lang('lang.no')</button>
                 <form action="{{ route('file.delete', $file->id) }}" method="post">
                     @method('DELETE')
                     @csrf

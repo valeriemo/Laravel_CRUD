@@ -24,19 +24,14 @@ Route::get('/', function () {
 
 // // Méthode pour afficher la page de détail d'un étudiant
 // Route::get('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
-
 // // Méthode pour afficher la page de création d'un nouvel étudiant
 // Route::get('/etudiant-create', [EtudiantController::class, 'create'])->name('etudiant.create');
-
 // // Méthode pour store le nouvel étudiant
 // Route::post('/etudiant-create', [EtudiantController::class, 'store'])->name('etudiant.store');
-
 // // Méthode pour afficher la page de modification
 // Route::get('/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit')->middleware('auth');;
-
 // // // Méthode pour store le update
 // Route::put( '/etudiant-reseau/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.edit')->middleware('auth');
-
 // // // Méthode pour supprimer un étudiant
 // Route::delete('/etudiant-reseau/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete')->middleware('auth');
 
@@ -56,6 +51,7 @@ Route::post('/blog-create', [BlogController::class, 'store'])->name('blog.store'
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
 Route::put('/blog/edit', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
+Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('blog.delete')->middleware('auth');
 
 // Route pour les files
 Route::get('/file-show', [FileController::class, 'index'])->name('file.index')->middleware('auth');

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class CustomAuthController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Affiche la page de login
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,6 +41,7 @@ class CustomAuthController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'nom' => 'required|min:2|max:45',
             'adresse' => 'required|min:3|max:150',
@@ -49,7 +50,7 @@ class CustomAuthController extends Controller
             'ville_id' => 'required|integer|exists:villes,id',
             'username' => 'required|min:6|max:45',
             'email' => 'email|required|unique:users',
-            'password' => 'min:6|max:20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/|required_with:password_confirmation|confirmed',
+            'password' => 'min:6|max:20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/|confirmed',
         ]);
     
         // Création du User
@@ -71,7 +72,6 @@ class CustomAuthController extends Controller
             'user_id' => $lastUserId,
         ]);
         $etudiant->save();
-
         return redirect(route('login'))->withSuccess('Utilisateur enregistré!');
     }
 
@@ -104,14 +104,5 @@ class CustomAuthController extends Controller
     {
         Auth::logout();
         return redirect(route('login'));
-    }
-
-    /**
-     * Page qui affiche la liste des users et de leurs blogs
-     */
-    public function userList()
-    {
-        $users = User::select()->orderBy('name')->paginate(4);
-        return view('auth.user-list', compact('users'));
     }
 }

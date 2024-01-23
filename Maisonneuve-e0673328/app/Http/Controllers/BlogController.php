@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\DB;
 class BlogController extends Controller
 {
 
-
+    /**
+     * Affiche tous les articles
+     */
     public function index()
     {
         $blogs = Blog::orderBy('id', 'desc')->select()->paginate(10);
@@ -22,13 +24,17 @@ class BlogController extends Controller
         return view('blog.index',  compact('blogs'));
     }
 
-
+    /**
+     * Affiche le formulaire de creation d'un article
+     */
     public function create()
     {
         return view('blog.create');
     }
 
-
+    /**
+     * Affiche un article
+     */
     public function show(Blog $blog)
     {
         $blog = Blog::find($blog->id);
@@ -39,48 +45,63 @@ class BlogController extends Controller
         return view('blog.blog-show', compact('blog'));
     }
 
+    /**
+     * Store un article
+     */
     public function store(Request $request)
     {
         $request->validate([ //validation des champs
             'titre' => 'required|min:2|max:60',
-            'contenu' => 'required|min:3|max:400',
+            'contenu' => 'required|min:3|max:4000',
             'titre_en' => 'required|min:2|max:60',
-            'contenu_en' => 'nullable|min:3|max:400',
+            'contenu_en' => 'nullable|min:3|max:4000',
             'date' => 'required|date|max:20|date_format:Y-m-d',
             'user_id' => 'required|integer|exists:users,id',
         ]);
         $blog = new Blog();
         $blog->fill($request->all());
         $blog->save();
-        return redirect(route('blog.index'))->withSuccess('Nouveau blog créer !');
+        return redirect(route('blog.index'))->withSuccess(trans('lang.blog_created'));
     }
 
-
+    /**
+     * Affiche le formulaire d'edition d'un article
+     */
     public function edit(Blog $blog)
     {
-        // on garde les donnees anglaises et francaises
+        $blog = Blog::find($blog->id);
         return view('blog.blog-edit', compact('blog'));
     }
 
-    public function update(Request $request, Blog $etudiant)
+    /**
+     * Update un article
+     */
+    public function update(Request $request, Blog $blog)
     {
         $request->validate([ //validation des champs
             'titre' => 'required|min:2|max:60',
-            'contenu' => 'required|min:3|max:400',
+            'contenu' => 'required|min:3|max:4000',
             'titre_en' => 'required|min:2|max:60',
-            'contenu_en' => 'min:3|max:400',
+            'contenu_en' => 'nullable|min:3|max:4000',
             'date' => 'required|date|max:20|date_format:Y-m-d|before_or_equal:today',
             'user_id' => 'required|integer|exists:users,id',
         ]);
-        $etudiant->update([
+        $blog->fill([
             'titre' => $request->titre,
             'contenu' => $request->contenu,
             'titre_en' => $request->titre_en,
             'contenu_en' => $request->contenu_en,
             'date' => $request->date,
             'user_id' => $request->user_id,
-        ]);
-        return redirect()->route('blog.index')->withSuccess('Blog modifié !');
+        ])->save();
+        return redirect()->route('blog.index')->withSuccess(trans('lang.blog_modified'));
     }
 
+    public function destroy(Blog $blog)
+    {
+        var_dump($blog->id);
+        die();
+        $blog->delete();
+        return redirect()->back()->withSuccess(trans('lang.blog_deleted'));
+    }
 }

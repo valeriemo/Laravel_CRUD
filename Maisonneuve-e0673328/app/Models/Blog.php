@@ -25,7 +25,6 @@ class Blog extends Model
         return $this->hasOne(User::class, 'id' , 'user_id');
     }
 
-    // Pour optimiser le code créer un blogRessource et l'appeler au lieu du model + ajoute le code qui verifie le language (prétraitement de donnee (pas de bloghasuser))
     /**
      * Récupérer le contenu de la colonne 'titre' ou 'titre_en' selon la langue de la session
      */

@@ -19,5 +19,8 @@
             </div>
             @endif
         </div>
+        <input type="hidden" id="id" name="id" class="form-control" value="{{ $blog->id }}">
+        <input type="hidden" id="date" name="date" class="form-control" value="{{ now()->toDateString() }}">
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="{{ Auth::user()->id }}">
     </div>
 </div>

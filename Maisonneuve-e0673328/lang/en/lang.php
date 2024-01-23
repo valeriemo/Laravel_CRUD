@@ -38,9 +38,21 @@ return [
     'create_article' => 'Write a blog post',
     'french_version' =>  'French Version',
     'english_version' =>  'English Version',
+    // Page Blog Edit
+    'edit_article' => 'Edit a blog post',
+    'delete' => 'Delete post',
+    'delete-msg' => 'Delete this post',
+    'delete-text' => 'Are you sure you want to delete this post?',
+    'no'  => 'No',
     // Page Files 
     'files_title' => 'All Files',
     'file_create' => 'Add a file',
+    'delete-file' => 'Delete file',
+    'delete-file-msg' => 'Are you sure you want to delete this file',
+    // Alertes de confirmation
+    'blog_created' => 'The blog post has been created',
+    'blog_modified' => 'The blog post has been modified',
+    'blog_deleted' => 'The blog post has been deleted',
 ]
 
 ?>

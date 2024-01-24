@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
-
     /**
      * Affiche tous les articles
      */
@@ -97,11 +96,12 @@ class BlogController extends Controller
         return redirect()->route('blog.index')->withSuccess(trans('lang.blog_modified'));
     }
 
+    /**
+     * Supprime un article
+     */
     public function destroy(Blog $blog)
     {
-        var_dump($blog->id);
-        die();
         $blog->delete();
-        return redirect()->back()->withSuccess(trans('lang.blog_deleted'));
+        return redirect()->route('blog.index')->withSuccess(trans('lang.blog_deleted'));
     }
 }

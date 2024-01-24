@@ -48,12 +48,27 @@ return [
     // Page Files
     'files_title' => 'Tous les documents',
     'file_create' => 'Ajouter un document',
+    'file-name' => 'Nom du document :',
+    'file-name-trans' => 'Nom du document (Version Anglaise) :',
+    'file-select' => 'Sélectionner un document :',
+    // Page edit file
+    'edit-file' => 'Éditer le nom du document',
+    'new-file-name' => 'Nouveau nom du document',
+    'new-file-name-trans' => 'Nouveau nom du document (Version Anglaise)',
     'delete-file' => 'Supprimer le document',
+    'delete-file-msg' => 'Êtes-vous certain de bien vouloir supprimer ce document ?',
     // Alertes de confirmation
     'blog_created' => 'L\'article a été créé',
     'blog_modified' => 'L\'article a été modifié',
     'blog_deleted' => 'L\'article a été supprimé',
-
+    'file_created' => 'Le document a été créé',
+    'file_modified' => 'Le document a été modifié',
+    'file_deleted' => 'Le document a été supprimé',
+    // Page profil
+    'profil' => 'Profil Étudiant',
+    'delete' => 'Supprimer le compte',
+    // Developpement
+    'developpement' => 'En développement',
     ]
 
 

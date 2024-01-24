@@ -17,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
         <div class="collapse navbar-collapse">
-            <a href="{{ route('accueil') }}"><img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
+            <a href="{{ Auth::user() ? route('blog.index') : route('accueil') }}"><img class="logo" src="{{asset('img/reseaulogo.svg')}}" alt="logo">
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -49,6 +49,11 @@
                 <li class="nav-item">
                     <a class="nav-link icon-lang" href="{{ route('lang', 'fr') }}"><img src="{{ asset('img/french.svg') }}" alt="Francais"></a>
                 </li>
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link icon-lang" href="{{ route('user.show', auth()->user()->id) }}"><img src="{{ asset('img/profil.svg') }}" alt="Profil icone"></a>
+                </li>
+                @endauth
             </ul>
         </div>
     </nav>

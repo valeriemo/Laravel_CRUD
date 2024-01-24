@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach($blogs as $blog)
                     <tr>
-                        <td>{{ ucfirst($blog->titre) }}</td>
+                        <td>{{ $blog->titre }}</td>
                         <td>{{ substr($blog->contenu, 0, 80) . '...' }}</td>
                         <td>{{ $blog->blogHasUser->username }}</td>
                         <td>{{ $blog->date }}</td>

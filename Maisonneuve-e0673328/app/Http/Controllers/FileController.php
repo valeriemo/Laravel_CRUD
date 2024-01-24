@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Storage; // Librairie pour le stockage des fichie
 
 class FileController extends Controller
 {
-    // Méthode pour afficher la page de tous les fichiers
+    /**
+     * Méthode pour afficher la page de tous les fichiers
+     */
     public function index()
     {
-        // on va aller chercher les titres en français et en anglais
         $titres = File::nomSelect();
         $files = File::orderBy('id', 'desc')->select()->paginate(10);
         foreach ($files as $file) {
@@ -21,19 +22,23 @@ class FileController extends Controller
         return view('files.index',  compact('files'));
     }
 
-    // Méthode pour afficher la page de création d'un nouveau fichier
+    /**
+     * Méthode pour afficher la page de création d'un nouveau fichier
+     */
     public function create()
     {
         return view('files.add-file');
     }
 
-    // Méthode pour store le nouveau fichier
+    /**
+     * Méthode pour store le nouvel fichier
+     */
     public function store(Request $request)
     {
         $request->validate([
             'nom' => 'required|min:2|max:60',
             'nom_en' => 'required|min:2|max:60',
-            'file' => 'required|mimes:pdf,zip,doc|max:2048', // Ajoutez une validation pour le fichier
+            'file' => 'required|mimes:pdf,zip,doc|max:2048', 
         ]);
         $file = new File();
         $file->nom = $request->nom;
@@ -47,16 +52,20 @@ class FileController extends Controller
         $file->user_id = $user_id;
         $file->save();
 
-        return redirect()->route('file.index')->with('success', 'File created successfully.');
+        return redirect()->route('file.index')->with('success',trans('lang.file_created'));
     }
 
-    // Méthode pour afficher la page de modification
+    /**
+     * Méthode pour afficher la page de modification
+     */
     public function edit(File $file)
     {
         return view('files.edit-file', compact('file'));
     }
 
-    // Méthode pour store le update
+    /**
+     * Méthode pour store le update
+     */
     public function update(Request $request){
         $request->validate([
             'nom' => 'required|min:2|max:60',
@@ -66,16 +75,18 @@ class FileController extends Controller
         $file->nom = $request->nom;
         $file->nom_en = $request->nom_en;
         $file->save();
-        return redirect()->route('file.index')->with('success', 'File updated successfully.');
+        return redirect()->route('file.index')->with('success', trans('lang.file_modified'));
     }
 
-    // Méthode pour supprimer un fichier
+    /**
+     * Méthode pour supprimer un fichier
+     */
     public function destroy(File $file)
     {
         // Supprimez le fichier du système de stockage
         Storage::delete($file->path);
         // Supprimez le fichier de la base de données
         $file->delete();
-        return redirect()->route('file.index')->with('success', 'File deleted successfully.');
+        return redirect()->route('file.index')->with('success', trans('lang.file_deleted'));
     }
 }
